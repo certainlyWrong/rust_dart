@@ -1,0 +1,15 @@
+rust_input: rust/src/api/**/*.rs
+dart_output: lib/src/rust
+c_output: frb_generated.h
+
+# this config, together with usage of that type, tests the feature of type rename
+dart_type_rename:
+  Box<dyn Any + Send + Sync + 'static>: BoxAnyMyDartTypeRename
+
+rust_preamble: "// test for rust_preamble"
+dart_preamble: "import 'dart:io';"
+
+# To help developing flutter_rust_bridge; normal users usually do not set this
+stop_on_error: true
+
+enable_lifetime: true
